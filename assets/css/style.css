@@ -1,0 +1,20 @@
+:root{
+    --violet: #8a2be2;
+    --miku: #3ef3f3;
+
+}
+
+.main-page-header{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 0rem 8rem 0rem;
+}
+
+.start-quiz{
+    border-radius: 5px;
+    background-color: var(--violet);
+    color: var(--miku);
+}
+
