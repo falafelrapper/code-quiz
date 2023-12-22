@@ -1,20 +1,54 @@
 :root{
-    --violet: #8a2be2;
+    --violet: #6018a3;
     --miku: #3ef3f3;
+    --white: #ffffff;
+    --comfygrey: #d3d3d3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+
+body{
+    background-color: var(--comfygrey);
 }
 
 .main-page-header{
-    display: flex;
+    display: block;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     text-align: center;
-    padding: 0rem 8rem 0rem;
+    padding: 4rem 8rem 0rem;
+}
+
+.quests{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.answers{
+    justify-content: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.timer{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.quests{
+    display: flex;
+    justify-content: center;
 }
 
 .start-quiz{
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: var(--violet);
-    color: var(--miku);
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1rem;
 }
 
