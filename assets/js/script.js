@@ -16,8 +16,16 @@ var answersDiv = document.querySelector("#answers")
 var headerEl = document.querySelector('.main-page-header')
 var timerEl = document.querySelector('#timer')
 
+/*
+1. add function to compare if data-answer === correct1, etc
+2. recall questionnaire in that function
+3. in that function add currentAnswer+ and currentQuestion+
+4. make function for gameover status
+*/
+
 // vars
 var timer = 60;
+var time = '';
 
 // Question arrays
 var currentQuestion = 0;
@@ -29,11 +37,6 @@ var questions = [
     "What does HTML mean"
 ]
 
-var answers = [
-    answer1,
-    answer2,
-    answer3
-]
 
 var answer1 = [
     "a true or false statement",
@@ -56,28 +59,75 @@ var answer3 = [
     "HyperText Markup Language"
 ]
 
-answer1[0] = true;
-answer2[1] = true;
-answer3[3] = true;
-
-function endgame(){
+var answers = [
+    answer1,
+    answer2,
+    answer3
+]
+function endGame(){
+    answersDiv.setAttribute('class', 'hidden');
+    questionDiv.setAttribute('class', 'hidden');
+    
     
 }
 
+var correct1 = "a true or false statement";
+var correct2 = "Cascading Style Sheet";
+var correct3 = "HyperText Markup Language";
+
+
+function questionnaire(){
+    if (currentQuestion < 3){
+        questionDiv.innerHTML = "<p>" + questions[currentQuestion] + "</p>";
+        var tempAnswers = answers[currentAnswer];
+        console.log(tempAnswers);
+        answersDiv.textContent = '';
+        for (var i=0; i < tempAnswers.length; i++){
+            // answersDiv.innerHTML += tempAnswers[i];
+            var btn = document.createElement('button');
+            btn.textContent = tempAnswers[i];
+            btn.setAttribute("data-answer", tempAnswers[i]);
+            
+            btn.setAttribute('class', 'blocked')
+            answersDiv.append(btn);
+        }
+    }
+}
 function quiz(){
     headerEl.setAttribute('class', 'hidden');
     console.log(questionDiv);
-    questionDiv.innerHTML = "<p>" + questions[currentQuestion] + "</p>";
-    answersDiv.innerHTML = "<ul>" + answers[currentAnswer] + "</ul>";
+    questionnaire();
 
-    setInterval(function(){
-        timerEl.textContent = "timer: " + timer;
+    
+    time = setInterval(function(){
+        timerEl.textContent = "Timer: " + timer;
         timer--;
+        if (timer === 0 || currentQuestion === 3){
+            clearInterval(time);
+            endGame()
+        }
     }, 1000)
+    
+}
 
-    if (timer === 0){
-        endGame()
+
+function answerCheck(event){
+    console.log(event.target)
+    var answerSelected = event.target.getAttribute('data-answer');
+    console.log(answerSelected);
+    if(answerSelected == correct1 || answerSelected == correct2 || answerSelected == correct3){
+        currentQuestion++;
+        currentAnswer++;
+        questionnaire();
+    } else {
+        timer = timer - 15;
+        currentQuestion++;
+        currentAnswer++;
+        questionnaire();
     }
 }
 
+
+
+answersDiv.addEventListener("click", answerCheck);
 startQuiz.addEventListener("click", quiz);
