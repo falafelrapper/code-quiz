@@ -1,29 +1,15 @@
-/*
-RULE OF THUMB FOR THIS HW ASSIGNMENT
-1. Start button that leads to the quiz starting
-2. Quiz has a functional score and timer system
-3. Each correct answer button press leads to the next question
-4. Incorrect answer buttons decreases time from the timer
-5. Quiz ends when the timer ends or the answers are all correct
-6. When it is over, you can save your data to a leaderboard that is saved to your localStorage
-7. There is a functional leaderboard button available at the start
-*/
+// HTML Elements
+var startQuiz = document.querySelector("#start");
+var questionDiv = document.querySelector('#quests');
+var answersDiv = document.querySelector("#answers");
+var leaderboardDiv = document.querySelector("#leaderboard");
+var headerEl = document.querySelector('.main-page-header');
+var timerEl = document.querySelector('#timer');
+var nameInput = document.querySelector('#nameInput');
+var saveButton = document.querySelector('#saveButton');
+var restartButton = document.querySelector('#restartButton');
 
-// html el
-var startQuiz = document.querySelector("#start")
-var questionDiv = document.querySelector('#quests')
-var answersDiv = document.querySelector("#answers")
-var headerEl = document.querySelector('.main-page-header')
-var timerEl = document.querySelector('#timer')
-
-/*
-1. add function to compare if data-answer === correct1, etc
-2. recall questionnaire in that function
-3. in that function add currentAnswer+ and currentQuestion+
-4. make function for gameover status
-*/
-
-// vars
+// Variables
 var timer = 60;
 var time = '';
 
@@ -64,17 +50,70 @@ var answers = [
     answer2,
     answer3
 ]
-function endGame(){
-    answersDiv.setAttribute('class', 'hidden');
-    questionDiv.setAttribute('class', 'hidden');
-    
-    
-}
+
 
 var correct1 = "a true or false statement";
 var correct2 = "Cascading Style Sheet";
 var correct3 = "HyperText Markup Language";
 
+// Functions
+
+function endGame(){
+    answersDiv.classList.add('hidden');
+    questionDiv.classList.add('hidden');
+    leaderboardDiv.removeAttribute('class', 'hidden');
+    
+}
+
+function restartGame() {
+    currentQuestion = 0;
+    currentAnswer = 0;
+    timer = 60;
+    clearInterval(time);
+    
+    questionDiv.classList.remove('hidden');
+    answersDiv.classList.remove('hidden');
+    leaderboardDiv.setAttribute('class', 'hidden');
+    nameInput.value = '';
+
+    quiz();
+}
+
+function saveScore() {
+    var playerName = nameInput.value.trim();
+    
+    if (playerName !== '') {
+        var points = timer;
+        var leaderboardData = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+        leaderboardData.push({ name: playerName, points: points });
+        leaderboardData.sort((a, b) => b.points - a.points);
+        localStorage.setItem('leaderboard', JSON.stringify(leaderboardData));
+
+        displayLeaderboard();
+    }
+}
+
+function displayLeaderboard() {
+    var leaderboardData = JSON.parse(localStorage.getItem('leaderboard')) || [];
+    var leaderboardTable = document.querySelector('#leaderboardTable');
+    leaderboardTable.innerHTML = '';
+
+    var headerRow = leaderboardTable.insertRow(0);
+    var nameHeader = headerRow.insertCell(0);
+    var pointsHeader = headerRow.insertCell(1);
+    nameHeader.innerHTML = '<b>Name</b>';
+    pointsHeader.innerHTML = '<b>Points</b>';
+
+
+    for (var i = 0; i < leaderboardData.length; i++) {
+        var row = leaderboardTable.insertRow(i + 1);
+        var nameCell = row.insertCell(0);
+        var pointsCell = row.insertCell(1);
+        nameCell.innerHTML = leaderboardData[i].name;
+        pointsCell.innerHTML = leaderboardData[i].points;
+    }
+}
 
 function questionnaire(){
     if (currentQuestion < 3){
@@ -94,7 +133,7 @@ function questionnaire(){
     }
 }
 function quiz(){
-    headerEl.setAttribute('class', 'hidden');
+    headerEl.classList.add('hidden');
     console.log(questionDiv);
     questionnaire();
 
@@ -128,6 +167,9 @@ function answerCheck(event){
 }
 
 
-
+// Event Listeners
 answersDiv.addEventListener("click", answerCheck);
 startQuiz.addEventListener("click", quiz);
+saveButton.addEventListener("click", saveScore);
+restartButton.addEventListener("click", restartGame);
+displayLeaderboard();

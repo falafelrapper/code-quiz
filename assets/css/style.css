@@ -57,10 +57,6 @@ body{
     
 }
 
-.quests{
-    display: flex;
-    justify-content: center;
-}
 
 .start-quiz{
     border-radius: 10px;
@@ -70,3 +66,45 @@ body{
     font-size: 1rem;
 }
 
+
+.leaderboard {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: var(--violet);
+    border-radius: 10px;
+    color: var(--white);
+}
+
+.leaderboard h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+#leaderboardTable {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#nameInput{
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#saveButton,
+#restartButton {
+    border-radius: 10px;
+    background-color: var(--violet);
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#leaderboardTable th,
+#leaderboardTable td {
+    padding: 8px;
+    border-bottom: 1px solid var(--white);
+}
