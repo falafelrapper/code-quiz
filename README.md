@@ -31,9 +31,14 @@ THEN I can save my initials and my score
 ## The Completed Challenge
 As you can see below, we now have a completed coding quiz in which you can play and attempt to get the high score on! You can see this below:
 
-![alt text](./assets/images/password-generator.png "Completed Password Generator")
+![alt text](./assets/images/site-1.png "Start of Quiz")
 
-To visit this site and try out all the different combinations, you may click [here](https://falafelrapper.github.io/js-password-generator/)! Feel free to try different combinations of passwords to generate!
+![alt text](./assets/images/site-2.png "Quiz in action with timer at the top")
+
+![alt text](./assets/images/site-3.png "End of Quiz/Leaderboard")
+
+
+To visit this site and try to get your own high score, you may click [here](https://falafelrapper.github.io/code-quiz/)!
 
 ## Credits
 This refactor was completed by Zachary Roy with help from Bryan Swarthout via Office Hours.
