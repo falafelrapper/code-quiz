@@ -83,7 +83,7 @@ function saveScore() {
     var playerName = nameInput.value.trim();
     
     if (playerName !== '') {
-        var points = timer;
+        var points = timer + 1;
         var leaderboardData = JSON.parse(localStorage.getItem('leaderboard')) || [];
 
         leaderboardData.push({ name: playerName, points: points });
@@ -140,11 +140,11 @@ function quiz(){
     
     time = setInterval(function(){
         timerEl.textContent = "Timer: " + timer;
-        timer--;
-        if (timer === 0 || currentQuestion === 3){
+        if (timer <= 0 || currentQuestion === 3){
             clearInterval(time);
             endGame()
         }
+        timer--;
     }, 1000)
     
 }
