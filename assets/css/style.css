@@ -23,13 +23,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: "Geist Mono";
-    src: url('../fonts/Geist.Mono/GeistMono-Regular.otf');
-    src: url('../fonts/Geist.Mono/GeistMono-Regular.otf') format('opentype'),
-        url('../fonts/Geist.Mono/GeistMono-Regular.woff2') format('woff2');
-}
-
 :root {
     --violet: #6018a3;
     --jade: #4b9995;
