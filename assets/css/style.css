@@ -99,6 +99,7 @@ body {
     color: var(--white);
     font-weight: bold;
     font-size: 1rem;
+    animation: fadeInBtn 3s;
 }
 
 
@@ -146,6 +147,22 @@ body {
 
 @keyframes fadeIn {
     0% {
+        padding-top: 20vh;
+        opacity: 0;
+    }
+
+    100% {
+        padding-top: 30vh;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInBtn {
+    0% {
+        opacity: 0;
+    }
+
+    50%{
         opacity: 0;
     }
 
