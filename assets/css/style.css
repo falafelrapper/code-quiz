@@ -43,7 +43,6 @@ body {
 .main-page-header {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     text-align: center;
     padding-top: 30vh;
@@ -168,5 +167,12 @@ body {
 
     100% {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-page-header {
+        margin: 0 10vw;
+        animation: fadeIn 1.5s;
     }
 }
