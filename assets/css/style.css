@@ -73,6 +73,7 @@ body {
     color: var(--white);
     font-weight: bold;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .hidden {
@@ -99,6 +100,7 @@ body {
     font-weight: bold;
     font-size: 1rem;
     animation: fadeInBtn 3s;
+    cursor: pointer;
 }
 
 
