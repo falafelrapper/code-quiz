@@ -1,33 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              violet: "#6018a3",
+              violetHover: "#4e1485",
+            },
+          },
+        },
+      }
+    </script>
+  </head>
 
-<body>
-    <header class="main-page-header">
-        <h1>Coding Quiz!</h1>
-        <h4>Welcome to my coding quiz! You will be asked a set of questions. Each question that you get right, you move
-            on to the next one, however if get it wrong, you lose time! The remaining time left will be your score at
-            the end!</h4>
-        <button class="start-quiz" id="start">Start Quiz</button>
+  <body class="w-full h-full">
+    <header class="main-page-header antialiased">
+      <h1 class="text-3xl font-bold">Coding Quiz!</h1>
+      <h4 class="text-lg">
+        Welcome to my coding quiz! You will be asked a set of questions. Each
+        question that you get right, you move on to the next one, however if get
+        it wrong, you lose time! The remaining time left will be your score at
+        the end!
+      </h4>
+      <button
+        class="ease-in-out duration-200 bg-violet hover:bg-violetHover text-white font-bold py-2 px-4 rounded-full start-quiz antialiased"
+        id="start"
+      >
+        Start Quiz
+      </button>
     </header>
-    <span class="timer" id="timer"></span>
-    <div class="quests" id="quests"></div>
-    <div class="answers" id="answers"></div>
+    <span class="timer antialiased" id="timer"></span>
+    <div class="quests antialiased" id="quests"></div>
+    <div class="answers antialiased" id="answers"></div>
     <div id="leaderboard" class="hidden">
-        <h2>Leaderboard</h2>
-        <h5>Congratulations on completing the game! Enter your name below to have your score recorded!</h5>
-        <input type="text" id="nameInput" placeholder="Enter your name">
-        <button id="saveButton">Save</button>
-        <button id="restartButton">Restart</button>
-        <table id="leaderboardTable"></table>
+      <h2 class="antialiased">Leaderboard</h2>
+      <h5 class="antialiased">
+        Congratulations on completing the game! Enter your name below to have
+        your score recorded!
+      </h5>
+      <input
+        class="text-black antialiased"
+        type="text"
+        id="nameInput"
+        placeholder="Enter your name"
+      />
+      <button
+        class="ease-in-out duration-200 bg-violet hover:bg-violetHover text-white font-bold py-2 px-4 rounded-full"
+        id="saveButton"
+      >
+        Save
+      </button>
+      <button
+        class="ease-in-out duration-200 bg-violet hover:bg-violetHover text-white font-bold py-2 px-4 rounded-full"
+        id="restartButton"
+      >
+        Restart
+      </button>
+      <table id="leaderboardTable"></table>
     </div>
     <script src="./assets/js/script.js"></script>
-</body>
-
+  </body>
 </html>

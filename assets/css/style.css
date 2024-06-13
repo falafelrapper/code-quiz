@@ -1,180 +1,177 @@
 @font-face {
-    font-family: "Geist";
-    src: url('../fonts/Geist/Geist-Regular.otf');
-    src: url('../fonts/Geist/Geist-Regular.otf') format('opentype'),
-        url('../fonts/Geist/Geist-Regular.woff2') format('woff2');
+  font-family: "Geist";
+  src: url("../fonts/Geist/Geist-Regular.otf");
+  src: url("../fonts/Geist/Geist-Regular.otf") format("opentype"),
+    url("../fonts/Geist/Geist-Regular.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Geist";
-    src: url('../fonts/Geist/Geist-Bold.otf');
-    src: url('../fonts/Geist/Geist-Bold.otf') format('opentype'),
-        url('../fonts/Geist/Geist-Bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Geist";
+  src: url("../fonts/Geist/Geist-Bold.otf");
+  src: url("../fonts/Geist/Geist-Bold.otf") format("opentype"),
+    url("../fonts/Geist/Geist-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Geist";
-    src: url('../fonts/Geist/Geist-Thin.otf');
-    src: url('../fonts/Geist/Geist-Thin.otf') format('opentype'),
-        url('../fonts/Geist/Geist-Thin.woff2') format('woff2');
-    font-weight: 100;
-    font-style: normal;
+  font-family: "Geist";
+  src: url("../fonts/Geist/Geist-Thin.otf");
+  src: url("../fonts/Geist/Geist-Thin.otf") format("opentype"),
+    url("../fonts/Geist/Geist-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
 }
 
 :root {
-    --violet: #6018a3;
-    --jade: #4b9995;
-    --miku: #3ef3f3;
-    --white: #ffffff;
-    --comfygrey: #d3d3d3;
-    --darkgrey: #5c5c5c;
-    font-family: 'Geist';
-
+  --violet: #6018a3;
+  --jade: #4b9995;
+  --miku: #3ef3f3;
+  --white: #ffffff;
+  --comfygrey: #d3d3d3;
+  --darkgrey: #5c5c5c;
+  font-family: "Geist";
 }
 
-body {
-    background: linear-gradient(var(--comfygrey) 90%, var(--darkgrey) 100%);
-    background-size: 100vw 100vh;
-    background-attachment: fixed;
-}
+/* body {
+  background: linear-gradient(var(--comfygrey) 90%, var(--darkgrey) 100%);
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+} */
 
 .main-page-header {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-    padding-top: 30vh;
-    margin: 0 30vw;
-    animation: fadeIn 1.5s;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  padding-top: 30vh;
+  margin: 0 30vw;
+  animation: fadeIn 1.5s;
 }
 
 .quests {
-    padding-top: 25vh;
-    font-size: 2rem;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
+  padding-top: 25vh;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 
 .answers {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .answers button {
-    border-radius: 15px;
-    margin: 5px;
-    padding: .2rem 1rem;
-    background-color: var(--violet);
-    color: var(--white);
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 0.2rem 1rem;
+  background-color: var(--violet);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .timer {
-    display: flex;
-    position: absolute;
-    top: 0;
-    width: 99%;
-    margin: 2rem 0;
-    text-align: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 2rem;
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 99%;
+  margin: 2rem 0;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 2rem;
 }
-
 
 .start-quiz {
-    border-radius: 10px;
-    background-color: var(--violet);
-    color: var(--white);
-    font-weight: bold;
-    font-size: 1rem;
-    animation: fadeInBtn 3s;
-    cursor: pointer;
+  border-radius: 10px;
+  background-color: var(--violet);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1rem;
+  animation: fadeInBtn 3s;
+  cursor: pointer;
 }
 
-
 #leaderboard {
-    text-align: center;
-    margin: 8rem auto;
-    padding: 10px;
-    background-color: var(--jade);
-    border-radius: 10px;
-    color: var(--white);
+  text-align: center;
+  margin: 8rem auto;
+  padding: 10px;
+  background-color: var(--jade);
+  border-radius: 10px;
+  color: var(--white);
+  width: 80%;
 }
 
 .leaderboard h2 {
-    text-align: center;
-    margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-
 #leaderboardTable {
-    width: 80%;
-    margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
 #nameInput {
-    margin: 5px;
-    padding: 8px;
-    border-radius: 5px;
-    font-weight: bold;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-#saveButton,
+/* #saveButton,
 #restartButton {
-    border-radius: 10px;
-    background-color: var(--violet);
-    color: var(--white);
-    font-weight: bold;
-    font-size: 1rem;
-}
+  border-radius: 10px;
+  background-color: var(--violet);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1rem;
+} */
 
 #leaderboardTable th,
 #leaderboardTable td {
-    padding: 8px;
-    border-bottom: 1px solid var(--white);
+  padding: 8px;
+  border-bottom: 1px solid var(--white);
 }
 
 @keyframes fadeIn {
-    0% {
-        padding-top: 20vh;
-        opacity: 0;
-    }
+  0% {
+    padding-top: 20vh;
+    opacity: 0;
+  }
 
-    100% {
-        padding-top: 30vh;
-        opacity: 1;
-    }
+  100% {
+    padding-top: 30vh;
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInBtn {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    50%{
-        opacity: 0;
-    }
+  50% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .main-page-header {
-        margin: 0 10vw;
-        animation: fadeIn 1.5s;
-    }
+  .main-page-header {
+    margin: 0 10vw;
+    animation: fadeIn 1.5s;
+  }
 }
